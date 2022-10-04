@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            height: 100vh;
+            max-width: 100vw;
+            margin: 0px;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .container {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+        }
+        
+        .row-container {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            text-align: center;
+            
+            flex-direction: column;
+        }
+
+        .column-container {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: stretch
+        }
+
+        .row {
+            height: 100%;
+        }
+
+        .column {
+            width: 100%;
+        }
+
+        .big-column {
+            width: 60%;
+        }
+
+        .small-column {
+            width: 20%;
+        }
+
+
+
+        .gray {
+            background-color: gray;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+
+        .purple {
+            background-color: purple;
+        }
+
+        .brown {
+            background-color: brown;
+        }
+
+        .orange {
+            align-items: center ;
+            background-color: orange;
+
+        }
+    </style>
+</head>
+    <body>
+        <div class="container">
+            <div class="small-column gray">left</div>
+    
+            <div class="big-column yellow">
+                <div class="row-container">
+    
+                    <div class="row">Center Top</div>
+                    <div class="row">
+                        <div class="column-container">
+                            <div class="column purple">Center 1</div>
+                            <div class="column brown">Center 2</div>
+                            <div class="column orange">Center 3</div>
+                        </div>
+                    </div>
+                    <div class="row">Center Bottom</div>
+    
+                </div>
+            </div>
+    
+            <div class="small-column red">right</div>
+        </div>
+        
+    </body>
+
+</html>
