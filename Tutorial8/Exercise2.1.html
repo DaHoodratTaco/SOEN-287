@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Student Data</h1>
+    
+    <br>
+    <input type="text" id="studentName" placeholder="Enter student name">
+    <br>
+    <br>
+
+    <button onclick="viewStudentData()">Click to view student data</button>
+    <button onclick="calulateAverage()">Click to calulate Average accross all subjects and all students</button>
+    <button onclick="removeStudentData()">Click to remove student data</button>
+    <button onclick="viewAll()">Click to view all student data</button>
+
+
+    <div id="data"></div>
+</body>
+<script>
+    let studentRecords = [{
+        'Name': 'Smit Desai',
+        'Age': 22,
+        'Marks': {
+            'Physics': 95,
+            'Chemistry': 95,
+            'Mathematics': 95,
+            'Computer Science': 97,
+            'English': 89
+        },
+    },
+    {
+        'Name': 'Mark Taylor',
+        'Age': 42,
+        'Marks': {
+            'Physics': 79,
+            'Chemistry': 89,
+            'Mathematics': 69,
+            'Computer Science': 72,
+            'English': 45
+        },
+    },
+    {
+        'Name': 'Justin Brown',
+        'Age': 31,
+        'Marks': {
+            'Physics': 65,
+            'Chemistry': 75,
+            'Mathematics': 99,
+            'Computer Science': 96,
+            'English': 39
+        },
+    },
+    {
+        'Name': 'Mitchel Williams',
+        'Age': 29,
+        'Marks': {
+            'Physics': 68,
+            'Chemistry': 59,
+            'Mathematics': 75,
+            'Computer Science': 97,
+            'English': 86
+        },
+    }]
+
+    function viewStudentData() {
+        const inputName = document.getElementById("studentName").value;
+        studentRecords.forEach(studentData => {
+            if (inputName == studentData.Name) {
+                loadStudentData(studentData);
+                return
+            }
+        })
+
+        studentNameNotFound()
+    }
+
+    function viewAll() {
+        studentRecords.forEach(studentData => {
+            loadStudentData(studentData);
+        })
+    }
+
+    function removeStudentData() {
+        // TA pushed his answer to github later
+        // const inputName = document.getElementById("studentName").value;
+        // studentRecords.forEach(studentData => {
+        //     if (inputName == studentData.Name) {
+        //         loadStudentData(studentData);
+        //         return
+        //     }
+        // })
+        
+    }
+
+    function studentNameNotFound() {
+        alert('Name not Found')
+    }
+
+    function calulateAverage() {
+        let sum = 0;
+        let count = 0
+
+        studentRecords.forEach(studentData => {
+            for (let subject in studentData.Marks) {
+                sum += parseInt(studentData.Marks[subject]);
+                count += 1;
+            }
+        })
+
+        alert("Average: " + sum/count);
+    }
+
+    function loadStudentData(studentData) {
+        const dataBlock = document.getElementById('data')
+
+        const name = document.createElement('h3')
+        name.innerHTML = studentData.Name
+
+        const age = document.createElement('p')
+        age.innerHTML = studentData.Age
+
+        const list = document.createElement('ul')
+        for (let subject in studentData.Marks) {
+            const listElement = document.createElement('li')
+            listElement.innerHTML = studentData.Marks[subject]
+            list.appendChild(listElement)
+        }
+
+        dataBlock.appendChild(name)
+        dataBlock.appendChild(age)
+        dataBlock.appendChild(list)
+    }
+
+</script>
+</html>

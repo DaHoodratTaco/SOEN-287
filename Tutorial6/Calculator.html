@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <style>
+
+        #result{
+            font-size: 3000;
+            margin: auto;
+            text-align: center;
+        }
+
+        body{
+            text-align: center;
+        }
+    </style>
+    
+</head>
+<body>
+    <label>first number</label>
+    <input  type="text" id="firstnum"><br>
+    <label>second number</label>
+    <input   type="text"  id="secondnum"><br>
+    
+    
+    <button type="button" id="mult" >Multiply</button> 
+    <button  type = "button" id="div">Divide</button>
+
+    <p>
+        <h1>The Result is:</h1>
+        <p id = "result"></p>
+    </p>
+
+   
+    
+</body>
+<script>
+    const multElement = document.getElementById("mult")
+    const divElement = document.getElementById("div")
+    const resultElement = document.getElementById("result")
+
+    const firstnumElement = document.getElementById("firstnum")
+    const secondnumElement = document.getElementById("secondnum")
+    multElement.addEventListener("click", () => {
+
+        if (isNaN(firstnumElement.value) || isNaN(secondnumElement.value)) {
+            document.body.style.backgroundColor = "red";
+        } else {
+        var result = firstnumElement.value * secondnumElement.value
+       
+        resultElement.innerText = result
+        document.body.style.backgroundColor = "white"
+        }
+    })
+    divElement.addEventListener("click", () => {
+        if (isNaN(firstnumElement.value) || isNaN(secondnumElement.value)) {
+            document.body.style.backgroundColor = "red";
+        } else {
+        var result = firstnumElement.value / secondnumElement.value
+        
+        resultElement.innerText = result
+        document.body.style.backgroundColor = "white"
+        }
+    })
+    
+    
+
+   
+    
+    
+
+    
+</script>
+</html>
